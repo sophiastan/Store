@@ -6,5 +6,5 @@ app.get('/', (req, res) => {
     res.send({ bye: 'buddy' });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(port);
+const PORT = process.env.PORT || 6000;
+app.listen(PORT);
