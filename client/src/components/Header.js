@@ -8,23 +8,25 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (
-          <li><a href="/auth/google">Login With Google</a></li>
-        );
+        return <li><a href="/auth/google">Login With Google</a></li>
       default:
         return <li><a href="/api/logout">Logout</a></li>;
     }
   }
-
+  
   render() {
-    console.log(this.props); 
     return (
       <nav>
         <div className="nav-wrapper">
           <Link 
-            to={this.props.auth ? '/surveys' : '/'}
+            to={this.props.auth ? '/home' : '/'}
             className="left brand-logo">
             Supermarket
+          </Link>
+          <Link
+            to={'/cart'}
+            className="right">
+            <i className="material-icons">shopping_cart</i>
           </Link>
           <ul className="right">
             {this.renderContent()}

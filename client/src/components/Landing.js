@@ -6,7 +6,7 @@ const Landing = () => {
       <h1>
         Supermarket!
       </h1>
-      Collect feedback from your users
+      Not signed in yet? Login!
     </div>
   );
 }
