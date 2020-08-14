@@ -24,7 +24,7 @@ class Header extends Component {
             Supermarket
           </Link>
           <Link
-            to={'/cart'}
+            to={'/home/cart'}
             className="right">
             <i className="material-icons">shopping_cart</i>
           </Link>

@@ -7,6 +7,7 @@ import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import ItemNew from './items/ItemNew';
+import Cart from './shoppingCart/Cart';
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Dashboard} />
           <Route path="/home/new" component={ItemNew} />
+          <Route path="/home/cart" component={Cart} />
         </div>
       </BrowserRouter>
     )

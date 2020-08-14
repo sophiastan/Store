@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_ITEMS, ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY } from './types';
+import { FETCH_USER, FETCH_ITEMS, ADD_TO_CART } from './types';
 
 // FETCH_USER
 export const fetchUser = () => async dispatch => {
@@ -10,7 +10,6 @@ export const fetchUser = () => async dispatch => {
 
 // FETCH_ITEMS
 export const submitItem = (values, history) => async dispatch => {
-  console.log(values);
   const res = await axios.post('/api/home', values);
 
   history.push('/home');
@@ -23,34 +22,19 @@ export const fetchItems = () => async dispatch => {
   dispatch({ type: FETCH_ITEMS, payload: res.data });
 }
 
-//add cart action
-export const addToCart = (id) => {
-  return {
-    type: ADD_TO_CART,
-    id
-  }
+// ADD_TO_CART
+export const addToCart = (item) => async dispatch => {
+  const res = await axios.post('/api/cart', item);
+
+  // history.push('/cart');
+
+  dispatch({ type: ADD_TO_CART, payload: res.data });
 }
 
-//remove item action
-export const removeItem = (id) => {
-  return {
-    type: REMOVE_ITEM,
-    id
-  }
+export const fetchCart = () => async dispatch => {
+  const res = await axios.get('/api/cart');
+
+  dispatch({ type: ADD_TO_CART, payload: res.data });
 }
 
-//subtract qt action
-export const subQuantity = (id) => {
-  return {
-    type: SUB_QUANTITY,
-    id
-  }
-}
 
-//add qt action
-export const addQuantity = (id) => {
-  return {
-    type: ADD_QUANTITY,
-    id
-  }
-}
